@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="loginPage/login.css">
+
+    <style>
+        #main{
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <header>
+
+            <ul>
+                <img id="logo" src="assets/images/logo.png" alt="logo">
+                <li><a href="#allRecipes">Всички рецепти</a> </li>
+                <li><a href="#favouriteRecipes">Любими рецепти</a></li>
+                <li><a href="#createRecipe">Създай рецепта</a></li>
+                <li><a href="#myPage">Моят Профил</a></li>
+                <!-- <li><a href="#"></a> </li> -->
+                <img id="profilePicture" src="assets/images/guest.png" alt="profilePicture">
+            </ul>
+
+            <input type="text" name="" id="search-bar" placeholder="Search Recipe">
+
+            <div id="profileInfo">
+                <span id="currentProfileName"></span>
+                <span id="currentProfileAge"></span>
+                <span id="currentProfileAdress"></span>
+            </div>
+
+        </header>
+
+        <script id="editProfile-template" type="text/x-handlebars-template">
+        <div id="myPageContainer" >
+            <h1>РЕДАКТИРАЙ ПРОФИЛ</h1>
+            <input id="currentPassword" type="text" placeholder="Въведи текуща парола">
+            <input id="personPassword" type="text" placeholder="Въведи нова парола">
+            <input id="personPassword2" type="text" placeholder="Потвърди нова парола">
+            <input id="personImage" type="text" placeholder="Въведи линк на профилна снимка">
+            <button id="buttonCreateProfile" >Редактирай</button>
+        </div>
+    </script>
+
+        <script id="profile-template" type="text/x-handlebars-template">
+        <div id="myPageTable">
+            <p>СГОТВЕНИ ЯСТИЯ</p>
+            <hr>
+            <h1 id="cookedDishes"></h1>
+        </div>
+    </script>
+
+        <script id="recipes-template" type="text/x-handlebars-template">
+        <div id="recipeCard" class="card">
+            <a href="{{href}}" target="_blank">
+                <img src="{{thumbnail}}" alt="">
+            </a>
+            <h1>{{title}}</h1>
+            <h3>{{ingredients}}</h3>
+            <button id="favouriteButton"></button>
+            <button id="cookButton">Сготви</button>
+        </div>
+    </script>
+
+        <script id="create-template" type="text/x-handlebars-template">
+        <div id="formContainer">
+            <h1>СЪЗДАЙ РЕЦЕПТА</h1>
+            <input id="recipeName" type="text" placeholder="Въведи име на рецепта">
+            <textarea id="ingredients" placeholder="Въведи съставки"></textarea>
+            <input id="linkToRecipe" type="text" placeholder="Въведи линк към подробна рецепта">
+            <input id="image" type="text" placeholder="Въведи линк на снимка">
+            <button id="buttonCreateRecipe">Създай рецепта</button>
+        </div>
+    </script>
+
+
+
+        <main id="mainPage">
+            <div id="allRecipes"></div>
+            <div id="favouriteRecipes"></div>
+            <div id="createRecipe"></div>
+            <div id="myPage"></div>
+            <div id="errorPage">
+                <h1>EROR 404 PAGE NOT FOUND</h1>
+            </div>
+        </main>
+
+        <footer>
+            <h1>Website created by Angel Manchev</h1>
+            <h2>All rights reserved 2023</h2>
+        </footer>
+    </div>
+
+    <div id="loginPage">
+        <form id="loginForm" class="form" action="#login">
+            <input id="loginPageUsername" type="text" placeholder="Enter your Username">
+            <input id="loginPagePassword" type="password" placeholder="Enter your Password">
+            <h1 id="loginErrorMessage">Wrong credentials</h1>
+            <input id="loginButton" type="button" value="Login" placeholder="Login">
+            <input id="goToRegisterButton" type="button" value="Go to register" placeholder="Go to register">
+        </form>
+    </div>
+    <div id="registerPage">
+        <form class="form" action="#register">
+            <input id="registerPageUsername" type="text" placeholder="Enter your Username">
+            <input id="registerPagePass" type="password" placeholder="Enter your Password">
+            <input id="registerPagePassConfirm" type="password" placeholder="Confirm your Password">
+            <h1 id="registerErrorMessage">Error you made a mistake</h1>
+            <input id="registerButton" type="button" value="Register" placeholder="Register">
+            <input id="goToLoginButton" type="button" value="Go to login page" placeholder="Go to login page">
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="loginPage/controller/util.js"></script>
+<script src="variables.js"></script>
+<script src="loginPage/model/template.js"></script>
+<script src="loginPage/model/LoginService.js"></script>
+<script src="loginPage/controller/loginPage.js"></script>
+
+<script src="compile.js"></script>
+<script src="data.js"></script>
+<script src="User.js"></script>
+<script src="Recipe.js"></script>
+<script src="RecipeManager.js"></script>
+
+<script src="hashHandle.js"></script>
+<script src="index.js"></script>
+<script src="recipes.js"></script>
+<script src="createRecipes.js"></script>
+<script src="myProfile.js"></script>

@@ -1,0 +1,18 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    border: 3px solid orange;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 10px;
+}
+
+#registerErrorMessage,
+#loginErrorMessage {
+    font-weight: bold;
+    font-size: 20px;
+    margin: auto;
+    color: red;
+}
